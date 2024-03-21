@@ -1,16 +1,23 @@
 const express = require('express');
-const indexRouter = require('./routes-budgetbuddy/index');
 const app = express();
-const port = process.env.PORT || 3000;
+const path = require('path');
 
-app.use(express.static('public'));
+// Set up the template engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-app.use('/', indexRouter);
+// Middleware to serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.send('Welcome to BudgetBuddy!');
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Routes
+app.use('/', require('./routes/index'));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`BudgetBuddy is running on port ${PORT}`);
 });
 
-app.listen(port, () => {
-    console.log(`BudgetBuddy is running on port ${port}`);
-});

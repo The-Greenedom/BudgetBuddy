@@ -1,0 +1,14 @@
+/* style.css */
+body {
+    background-color: #242427; /* Charcoal */
+    color: #0c6b48; /* Dark Green */
+  }
+  
+  /* Bootstrap overrides and additional styles */
+  .header, .footer {
+    background-color: #17232b; /* Charcoal */
+    color: #fff;
+  }
+  
+  /* Add more styling rules as needed */
+  

@@ -18,6 +18,7 @@
   "author": "TheGreenedom Organization",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.19.1"
   },
   "devDependencies": {
